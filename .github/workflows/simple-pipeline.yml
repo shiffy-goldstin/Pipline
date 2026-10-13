@@ -1,0 +1,19 @@
+name: Classroom CI-CD Demo 2026
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Run Build Process
+        run: |
+          echo "Starting build process..."
+          echo "Building project files..."
+          echo "Build completed successfully!"
