@@ -41,3 +41,16 @@ jobs:
           else:
               exit(1)
           '
+
+  deploy_stage:
+    runs-on: ubuntu-latest
+    needs: test_stage
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Simulate Staging Deployment
+        run: |
+          echo "Preparing deployment to Staging environment..."
+          echo "Transferring application artifacts..."
+          echo "Deployment to Staging completed successfully!"
