@@ -17,3 +17,27 @@ jobs:
           echo "Starting build process..."
           echo "Building project files..."
           echo "Build completed successfully!"
+
+  test_stage:
+    runs-on: ubuntu-latest
+    needs: build_stage
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Python Simulation Tests
+        run: |
+          python -c '
+          print("Starting Python test simulation...")
+          print("Checking application logic...")
+          success = True
+          if success:
+              print("All Python tests passed successfully!")
+          else:
+              exit(1)
+          '
